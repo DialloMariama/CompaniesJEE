@@ -13,6 +13,17 @@ public class AccountUserEntity implements Serializable{
 	public void setId(long id) {
 		this.id = id;
 	}
+	public AccountUserEntity(long id, String email, String password, boolean state) {
+		super();
+		this.id = id;
+		this.email = email;
+		this.password = password;
+		this.state = state;
+	}
+	
+	public AccountUserEntity() {
+		super();
+	}
 	public String getEmail() {
 		return email;
 	}
