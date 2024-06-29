@@ -1,24 +1,30 @@
 package com.groupeisi.companies.dao;
 
 import java.util.List;
+import java.util.Optional;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 
 import com.groupeisi.companies.entities.AccountUserEntity;
 
-public class AccountUserDao implements IAccountUserDao{
+public class AccountUserDao extends RepositoryImpl<AccountUserEntity> implements IAccountUserDao{
 
 	@Override
-	public AccountUserEntity login(String email, String password) {
-		return new AccountUserEntity(1L, "fz@gmail.com", "passer", true);
+	public Optional<AccountUserEntity> login(String email, String password) {
+		CriteriaBuilder cb = session.getCriteriaBuilder();
+		CriteriaQuery<AccountUserEntity> cr = cb.createQuery(AccountUserEntity.class);
+		Root<AccountUserEntity> user = cr.from(AccountUserEntity.class);
+		//Predicate pour la clause where
+		Predicate predicateEmail = cb.equal(user.get("email"), email);
+		Predicate predicatePwd = cb.equal(user.get("password"), password);
+		Predicate finalPredicate = cb.and(predicateEmail, predicatePwd);
+		
+		cr.select(user);
+		cr.where(finalPredicate);
+		
+		return Optional.ofNullable(session.createQuery(cr).getSingleResult());
 	}
-
-	@Override
-	public List<AccountUserEntity> findAll() {
-		return List.of(
-				new AccountUserEntity(1L, "fz@gmail.com", "passer", true),
-				new AccountUserEntity(1L, "awa@gmail.com", "passer", false),
-				new AccountUserEntity(1L, "baye@gmail.com", "passer", true),
-				new AccountUserEntity(1L, "modu@gmail.com", "passer", false)
-		);
-	}
-
 }
