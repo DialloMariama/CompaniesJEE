@@ -41,8 +41,13 @@ public class LoginServlet extends HttpServlet {
 		String userName = request.getParameter("username");
 		String password = request.getParameter("password");
 		logger.info("email envoyé: {} ", userName);
+		if (userName.equals("saidou@gmail.com") && password.equals("passer")) {
+			request.getSession().setAttribute("username", userName);
+			response.sendRedirect("welcome");
+		}else {
+			response.sendRedirect("login");
+		}
 		
-		response.sendRedirect("welcome");
 	}
 
 }
