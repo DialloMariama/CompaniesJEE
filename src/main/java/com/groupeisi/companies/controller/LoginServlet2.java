@@ -14,14 +14,14 @@ import org.slf4j.LoggerFactory;
  * Servlet implementation class Login
  */
 @WebServlet(name = "login" , value =  "/login")
-public class LoginServlet extends HttpServlet {
+public class LoginServlet2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	Logger logger = LoggerFactory.getLogger(LoginServlet.class);
+	Logger logger = LoggerFactory.getLogger(LoginServlet2.class);
 
     /**
      * Default constructor. 
      */
-    public LoginServlet() {
+    public LoginServlet2() {
         // TODO Auto-generated constructor stub
     }
 
@@ -41,13 +41,8 @@ public class LoginServlet extends HttpServlet {
 		String userName = request.getParameter("username");
 		String password = request.getParameter("password");
 		logger.info("email envoyé: {} ", userName);
-		if (userName.equals("saidou@gmail.com") && password.equals("passer")) {
-			request.getSession().setAttribute("username", userName);
-			response.sendRedirect("welcome");
-		}else {
-			response.sendRedirect("login");
-		}
 		
+		response.sendRedirect("welcome");
 	}
 
 }
