@@ -8,7 +8,7 @@
 		  <div class="card">
 		    <h2>Login</h2>
 		    <form method="post" action="login">
-		      <input type="text" id="username" name="username" placeholder="Username" required>
+		      <input type="text" id="username" name="email" placeholder="Username" required>
 		      <input type="password" id="password" name="password" placeholder="Password" required>
 		      <button type="submit">Login</button>
 		    </form>

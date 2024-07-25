@@ -23,6 +23,15 @@
 		        <li class="nav-item">
 		          <a class="nav-link" href="admin">Admin</a>
 		        </li>
+		         <li class="nav-item">
+		          <a class="nav-link" href="product">Product</a>
+		        </li>
+		          <li class="nav-item">
+		          <a class="nav-link" href="purchase">Purchase</a>
+		        </li>
+		        <li class="nav-item">
+		          <a class="nav-link" href="sale">Sale</a>
+		        </li>
 		        <li class="nav-item dropdown">
 		          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 		            Action
@@ -33,9 +42,6 @@
 		            <li><hr class="dropdown-divider"></li>
 		            <li><a class="dropdown-item" href="#">Settings</a></li>
 		          </ul>
-		        </li>
-		        <li class="nav-item">
-		          <a class="nav-link disabled">Disabled</a>
 		        </li>
 		      </ul>
 		      <form class="d-flex" role="search">

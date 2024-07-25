@@ -15,7 +15,7 @@
 					<tr>
 						<th>ID</th>
 						<th>EMAIL</th>
-						<th>ETAT</th>
+						<th>STATE</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -23,18 +23,39 @@
 						<tr>
 							<td>${user.id}</td>
 							<td>${user.email}</td>
-							<c:if test="${user.state == true}">
-								<td>Activé</td>
-							</c:if>
-							<c:if test="${user.state == false}">
-								<td>Desactivé</td>
-							</c:if>
-							
+							 <c:choose>
+					            <c:when test="${user.state == false}">
+					                <td>Deactivated</td>
+					            </c:when>
+					            <c:otherwise>
+					                <td>Activated</td>
+					            </c:otherwise>
+					        </c:choose>
 						</tr>
 					</c:forEach>
 				</tbody>
-			
 			</table>
+		</div>
+		<div class="container my-3">
+			<h3 class="text-center">Add User</h3>
+			<form action="admin" method="post">
+			  <div class="mb-3">
+			    <label for="exampleInputEmail1" class="form-label">Email</label>
+			    <input type="text" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+			  </div>
+			  <div class="mb-3">
+			    <label for="exampleInputPassword1" class="form-label">Password</label>
+			    <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+			  </div>
+			  <div class="mb-3">
+			    <label for="exampleInputPassword1" class="form-label">State</label>
+			    <select name="state" class="form-select">
+			    	<option value="1">Activated</option>
+			    	<option value="0">Deactivated</option>
+			    </select>
+			  </div>
+			  <button type="submit" class="btn btn-primary">Submit</button>
+			</form>
 		</div>
 	</body>
 </html>

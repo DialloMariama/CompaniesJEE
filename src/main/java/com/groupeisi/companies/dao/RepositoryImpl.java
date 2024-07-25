@@ -51,7 +51,6 @@ public class RepositoryImpl<T> implements Repository<T> {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<T> list(T t) {
 		// Utilisation de l'API criteria
@@ -63,9 +62,13 @@ public class RepositoryImpl<T> implements Repository<T> {
 
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public T get(long id, T t) {
+		return (T) session.get(t.getClass(), id);
+	}
+
+	@Override
+	public T get(String id, T t) {
 		return (T) session.get(t.getClass(), id);
 	}
 

@@ -1,6 +1,5 @@
 package com.groupeisi.companies.config;
 
-import java.util.Map;
 import java.util.Properties;
 
 import org.hibernate.SessionFactory;
@@ -12,6 +11,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.groupeisi.companies.entities.AccountUserEntity;
+import com.groupeisi.companies.entities.ProductEntity;
+import com.groupeisi.companies.entities.PurchaseEntity;
+import com.groupeisi.companies.entities.SaleEntity;
 
 public class HibernateUtil {
    private static SessionFactory sessionFactory;
@@ -44,7 +46,10 @@ public class HibernateUtil {
 
                configuration.setProperties(settings);
                configuration.addAnnotatedClass(AccountUserEntity.class);
-
+               configuration.addAnnotatedClass(ProductEntity.class);               
+               configuration.addAnnotatedClass(PurchaseEntity.class);
+               configuration.addAnnotatedClass(SaleEntity.class);   
+               
                ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                        .applySettings(configuration.getProperties()).build();
                sessionFactory = configuration.buildSessionFactory(serviceRegistry);

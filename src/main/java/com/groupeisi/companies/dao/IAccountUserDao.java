@@ -1,6 +1,5 @@
 package com.groupeisi.companies.dao;
 
-import java.util.List;
 import java.util.Optional;
 
 import com.groupeisi.companies.entities.AccountUserEntity;

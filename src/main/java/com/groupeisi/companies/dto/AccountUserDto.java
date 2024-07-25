@@ -30,10 +30,10 @@ public class AccountUserDto {
 	public void setState(boolean state) {
 		this.state = state;
 	}
-	public AccountUserDto(long id, String email, boolean state) {
+	public AccountUserDto(String email, String password, boolean state) {
 		super();
-		this.id = id;
 		this.email = email;
+		this.password = password;
 		this.state = state;
 	}
 	public AccountUserDto() {

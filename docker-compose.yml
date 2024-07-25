@@ -1,33 +1,35 @@
+version: '3.9'
+
 services:
-  db:
+  mysql-bootcamp:
     image: mysql:8.0
-    container_name: mysql
-    restart: always
-    ports:
-      - "3306:3306"
+    container_name: container-mysql-bootcamp
     environment:
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: securitydb
       MYSQL_USER: user
       MYSQL_PASSWORD: passer123@
-      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 3306:3306
     volumes:
-      - db:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
     healthcheck:
       test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
 
-  phpmyadmin:
+  phpmyadmin-bootcamp:
+    container_name: phpmyadmin-bootcamp
     image: phpmyadmin/phpmyadmin:latest
-    container_name: phpmyadmin
+    ports:
+      - 8084:80
     environment:
-      PMA_HOST: db
-      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root
+      PMA_HOST: mysql-bootcamp
       PMA_USER: user
       PMA_PASSWORD: passer123@
-    ports:
-      - "3003:80"
     depends_on:
-      - db
+      - mysql-bootcamp
     restart: unless-stopped
 
 volumes:
-  db:
+  mysql_data:
+    driver: local
