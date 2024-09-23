@@ -20,12 +20,11 @@ public class AccountUserEntity implements Serializable{
 	@Column(name = "password", nullable = false)
 	private String password;
 	private boolean state;
-	public long getId() {
-		return id;
+	
+	public AccountUserEntity() {
+		super();
 	}
-	public void setId(long id) {
-		this.id = id;
-	}
+	
 	public AccountUserEntity(long id, String email, String password, boolean state) {
 		super();
 		this.id = id;
@@ -34,8 +33,11 @@ public class AccountUserEntity implements Serializable{
 		this.state = state;
 	}
 	
-	public AccountUserEntity() {
-		super();
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
 	}
 	public String getEmail() {
 		return email;

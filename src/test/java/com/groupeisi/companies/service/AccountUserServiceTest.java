@@ -1,4 +1,5 @@
-package com.groupeisi.companies.service;
+
+ package com.groupeisi.companies.service;
 
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
@@ -35,7 +36,7 @@ public class AccountUserServiceTest {
 	
 	@Test
 	void loginSuccess() {
-		AccountUserEntity accountUserEntity = new AccountUserEntity(1L, "fz@gmail.com", "passer", true);
+		Optional<AccountUserEntity> accountUserEntity = Optional.ofNullable(new AccountUserEntity(1L, "fz@gmail.com", "passer", true));
 		
 		when(accountUserDao.login(anyString(), anyString()))
 		.thenReturn(accountUserEntity);
@@ -59,3 +60,5 @@ public class AccountUserServiceTest {
 		Assertions.assertTrue(accountUserDto.isEmpty());
 	}
 }
+ 
+  

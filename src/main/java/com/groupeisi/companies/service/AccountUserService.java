@@ -32,15 +32,17 @@ public class AccountUserService implements IAccountUserService{
 
 	private Optional<AccountUserDto> testLogin(String email, String password) {
 		
-		Optional<AccountUserEntity> accountUserEntity = accountUserDao.login(email, password);
-
-		if(accountUserEntity.isPresent()) {
-			AccountUserDto accountUserDto = AccountUserMapper.toAccountUserDto(accountUserEntity.get());
-			return Optional.of(accountUserDto);
-		}
-		else {
-			return Optional.empty();
-		}
+		/*
+		 * Optional<AccountUserEntity> accountUserEntity = accountUserDao.login(email,
+		 * password);
+		 * 
+		 * if(accountUserEntity.isPresent()) { AccountUserDto accountUserDto =
+		 * AccountUserMapper.toAccountUserDto(accountUserEntity.get()); return
+		 * Optional.of(accountUserDto); } else { return Optional.empty(); }
+		 */
+		return	accountUserDao.login(email, password)
+							.map(user -> Optional.of(AccountUserMapper.toAccountUserDto(user)))
+							.orElse(Optional.empty());
 	}
 
 	@Override

@@ -40,8 +40,10 @@
 		<form action="admin" method="post">
 
 			<div class="mb-3">
-				<label for="exampleInputEmail1" class="form-label">Email
-					address</label> <input type="text" name="email" class="form-control"
+				<label for="exampleInputEmail1" class="form-label">
+					Email address
+				</label>
+				<input type="text" name="email" class="form-control"
 					id="exampleInputEmail1" aria-describedby="emailHelp">
 			</div>
 			<div class="mb-3">
@@ -50,7 +52,8 @@
 					id="exampleInputPassword1">
 			</div>
 			<div class="mb-3">
-				<label class="form-label">Etat</label> <select name="etat"
+				<label class="form-label">Etat</label> 
+				<select name="etat"
 					class="form-control">
 					<option value="true">activé</option>
 					<option value="false">desactivé</option>

@@ -6,6 +6,16 @@ public class AccountUserDto {
 	private String email;
 	private String password;
 	private boolean state;
+	
+	public AccountUserDto() {
+		super();
+	}
+	public AccountUserDto(long id, String email, boolean state) {
+		super();
+		this.id = id;
+		this.email = email;
+		this.state = state;
+	}
 	public long getId() {
 		return id;
 	}
@@ -30,14 +40,4 @@ public class AccountUserDto {
 	public void setState(boolean state) {
 		this.state = state;
 	}
-	public AccountUserDto(long id, String email, boolean state) {
-		super();
-		this.id = id;
-		this.email = email;
-		this.state = state;
-	}
-	public AccountUserDto() {
-		super();
-	}
-	
 }

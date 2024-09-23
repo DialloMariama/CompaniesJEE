@@ -23,6 +23,15 @@
 		        <li class="nav-item">
 		          <a class="nav-link" href="admin">Admin</a>
 		        </li>
+		        <li class="nav-item">
+		          <a class="nav-link" href="products">Produits</a>
+		        </li>
+		        <li class="nav-item">
+		          <a class="nav-link" href="purchases">Achats</a>
+		        </li>
+		        <li class="nav-item">
+		          <a class="nav-link" href="sales">Vents</a>
+		        </li>
 		        <li class="nav-item dropdown">
 		          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 		            Action
